@@ -13,4 +13,8 @@ class AzureStorageKeyDetector(RegexBasedDetector):
     denylist = [
         # Account Key (AccountKey=xxxxxxxxx)
         re.compile(r'AccountKey=[a-zA-Z0-9+\/=]{88}'),
+        # Shared Access Key (SharedAccessKey=xxxxxxxxx)
+        re.compile(r'SharedAccessKey=[a-zA-Z0-9+\/=]{44}'),
+        # Shared Access Tokens (SharedAccessSignature=xxxxxxxxx)
+        re.compile(r'SharedAccessSignature=[a-zA-Z0-9+\/=]{4,88}'),
     ]
